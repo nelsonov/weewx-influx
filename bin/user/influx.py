@@ -408,7 +408,7 @@ class InfluxThread(weewx.restx.RESTThread):
             record = self.get_record(record, dbm)
         if self.unit_system is not None:
             record = weewx.units.to_std_system(record, self.unit_system)
-        url = '%s/write?db=%s' % (self.server_url, self.database)
+        url = '%s/write?db=%s&precision=u' % (self.server_url, self.database)
         data = self.get_data(record)
         if weewx.debug >= 2:
             logdbg('url: %s' % url)
